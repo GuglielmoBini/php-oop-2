@@ -30,15 +30,33 @@ include __DIR__ . '/data/index.php';
         <div class="container">
             <div class="row row-cols-3">
                 <?php foreach ($products as $product) : ?>
-                    <div class="col">
-                        <div class="card text-center">
+                    <div class="col mb-5">
+                        <div class="card text-center h-100">
+                            <h3 class="mt-3"><?= $product->type ?></h3>
                             <img src="<?= $product->poster ?>" class="card-img-top" alt="<?= $product->name ?>">
                             <div class="card-body">
-                                <h3 class="card-title"><?= $product->name ?></h3>
-                                <h4><?= $product->brand ?></h4>
+                                <h4 class="card-title p-3"><?= $product->name ?></h4>
+                                <h5><?= $product->brand ?></h5>
                                 <h6><?= $product->category->label ?></h6>
                                 <h4><?= $product->price ?></h4>
-                                <p class="card-text"><?= $product->description ?></p>
+                                <?php if ($product instanceof Game) : ?>
+                                    <div class="border fw-bold">
+                                        <div>Colore: <?= $product->game_color ?></div>
+                                        <div>Materiale: <?= $product->material ?></div>
+                                    </div>
+                                <?php elseif ($product instanceof Bed) : ?>
+                                    <div class="border fw-bold">
+                                        <div><?= $product->color ?></div>
+                                        <div><?= $product->dimensions ?></div>
+                                        <div><?= $product->materials ?></div>
+                                    </div>
+                                <?php elseif ($product instanceof Food) : ?>
+                                    <div class="border fw-bold">
+                                        <div><?= $product->food_type ?></div>
+                                        <div><?= $product->date ?></div>
+                                    </div>
+                                <?php endif; ?>
+                                <p class="card-text my-3 fw-bold fst-italic"><?= $product->description ?></p>
                             </div>
                         </div>
                     </div>

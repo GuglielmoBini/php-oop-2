@@ -32,31 +32,31 @@ include __DIR__ . '/data/index.php';
                 <?php foreach ($products as $product) : ?>
                     <div class="col mb-5">
                         <div class="card text-center h-100">
-                            <h3 class="mt-3"><?= $product->type ?></h3>
-                            <img src="<?= $product->poster ?>" class="card-img-top" alt="<?= $product->name ?>">
+                            <h3 class="mt-3"><?= $product->getType() ?></h3>
+                            <img src="<?= $product->getPoster() ?>" class="card-img-top" alt="<?= $product->getName() ?>">
                             <div class="card-body">
-                                <h4 class="card-title p-3"><?= $product->name ?></h4>
-                                <h5><?= $product->brand ?></h5>
-                                <h6><?= $product->category->label ?></h6>
-                                <h4><?= $product->price ?></h4>
+                                <h4 class="card-title p-3"><?= $product->getName() ?></h4>
+                                <h5><?= $product->getBrand() ?></h5>
+                                <h6><?= $product->getCategory()->getLabel() ?></h6>
+                                <h4><?= $product->getPrice() ?></h4>
                                 <?php if ($product instanceof Game) : ?>
                                     <div class="border fw-bold">
-                                        <div>Colore: <?= $product->game_color ?></div>
-                                        <div>Materiale: <?= $product->material ?></div>
+                                        <div>Colore: <?= $product->getGameColor() ?></div>
+                                        <div>Materiale: <?= $product->getMaterial() ?></div>
                                     </div>
                                 <?php elseif ($product instanceof Bed) : ?>
                                     <div class="border fw-bold">
-                                        <div><?= $product->color ?></div>
-                                        <div><?= $product->dimensions ?></div>
-                                        <div><?= $product->materials ?></div>
+                                        <div><?= $product->getColor() ?></div>
+                                        <div><?= $product->getDimensions() ?></div>
+                                        <div><?= $product->getMaterials() ?></div>
                                     </div>
                                 <?php elseif ($product instanceof Food) : ?>
                                     <div class="border fw-bold">
-                                        <div><?= $product->food_type ?></div>
-                                        <div><?= $product->date ?></div>
+                                        <div><?= $product->getFoodType() ?></div>
+                                        <div><?= $product->getDate() ?></div>
                                     </div>
                                 <?php endif; ?>
-                                <p class="card-text my-3 fw-bold fst-italic"><?= $product->description ?></p>
+                                <p class="card-text my-3 fw-bold fst-italic"><?= $product->getDescription() ?></p>
                             </div>
                         </div>
                     </div>

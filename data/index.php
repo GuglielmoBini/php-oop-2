@@ -19,5 +19,5 @@ $food_umido = new Food('V-Diet Gastrointestinal Low', 'ROYAL CANIN', '4,99 €',
 
 $cuccia = new Bed('Cuccia Ciambella Pelosa', 'LUNA E TEO', '29,90 €', 'Soffice cuccia pelosa in grado di offrire a cani e gatti un posticino morbido e accogliente in cui riposarsi, per recuperare tutte le energie. Prodotto dotato di bordo rialzato ed imbottito.', 'https://arcaplanet.vtexassets.com/arquivos/ids/277241/luna-e-teo-cuccia-pelosa-color-blu.jpg?v=1763255813', 'azzurro', '40cmx60cm', 'morbido', $cat, 'cuccia');
 
-
+// array prodotti
 $products = [$frisbee, $food_umido, $cuccia];

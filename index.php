@@ -23,7 +23,29 @@ include __DIR__ . '/data/index.php';
 </head>
 
 <body>
-
+    <header class="bg-dark text-white text-center mb-5 p-5">
+        <h1>Prodotti</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row row-cols-3">
+                <?php foreach ($products as $product) : ?>
+                    <div class="col">
+                        <div class="card text-center">
+                            <img src="<?= $product->poster ?>" class="card-img-top" alt="<?= $product->name ?>">
+                            <div class="card-body">
+                                <h3 class="card-title"><?= $product->name ?></h3>
+                                <h4><?= $product->brand ?></h4>
+                                <h6><?= $product->category->label ?></h6>
+                                <h4><?= $product->price ?></h4>
+                                <p class="card-text"><?= $product->description ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

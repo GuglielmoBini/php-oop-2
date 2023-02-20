@@ -8,8 +8,9 @@ class Product
     public $description;
     public $poster;
     public $category;
+    public $type;
 
-    public function __construct($_name, $_brand, $_price, $_description, $_poster, Category $_category)
+    public function __construct($_name, $_brand, $_price, $_description, $_poster, Category $_category, $_type)
     {
         $this->name = $_name;
         $this->brand = $_brand;
@@ -17,5 +18,6 @@ class Product
         $this->description = $_description;
         $this->poster = $_poster;
         $this->category = $_category;
+        $this->type = $_type;
     }
 }
